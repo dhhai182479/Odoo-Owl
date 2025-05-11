@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<template xml:space="preserve">
+
+    <t t-name="owl.todo_item_template" owl="1">
+        <div t-att-class="props.todo.isCompleted ? 'text-muted text-decoration-line-through' : ''">
+<!--            <span t-esc="props.todo.id"/>.-->
+<!--            <span t-esc="props.todo.description"/>-->
+<!--            <span t-esc="props.todo.isCompleted"/>-->
+
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       t-att-id="props.todo.id"
+                       t-att-checked="props.todo.isCompleted"
+                       t-on-change="onchange_todo_item"
+                />
+                <label t-att-for="props.todo.id" t-att-class="props.todo.isCompleted ? 'text-decoration-line-through text-muted' : '' ">
+                    <t t-esc="props.todo.id"/>.
+                    <t t-esc="props.todo.description"/>
+                </label>
+                <span> </span>
+                <span role="button"
+                      class="fa fa-remove ms-3 text-danger"
+                      t-att-id="props.todo.id"
+                      t-on-click="onRemove"/>
+
+            </div>
+
+        </div>
+    </t>
+</template>

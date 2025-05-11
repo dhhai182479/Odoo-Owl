@@ -1,0 +1,37 @@
+1. setup()
+    . Hàm setup() trong OWL được sử dụng để khởi tạo logic của một component.
+    . Được gọi 1 lần duy nhất khi component khởi tạo và trước khi nó được render lần đầu
+    . setup() là lifecycle method (phương thức vòng đời).
+    . Hooks (useState, useRef, useEffect,...) là các hàm đặc biệt chỉ có thể được gọi trong setup() này !
+    . Không gọi API hoặc ORM trực tiếp trong setup(). Dùng willStart() để xử lý bất đồng bộ.
+    . Không gán giá trị trực tiếp cho this (ví dụ: this.someVar = 123). Hãy dùng state hoặc biến cục bộ.
+
+2. useState()
+    . import { useState } from "@odoo/owl";
+    . state = useState({}). State được sử dụng để quản lý trạng thái bên trong components.
+    . Dữ liệu trong state có thể thay đổi mà không cần components cha truyền lại.
+ => Sử dụng state khi dữ liệu này không phụ thuộc vào components cha.
+
+3. props
+    . Là một đối tượng chứa dữ liệu do component cha của nó cung cấp xuống cho component con (Cha truyền con nối)
+    . Mọi thuộc tính bắt đầu bằng t- thì không phải là props
+    . static props = {
+        value1: String,
+        value2: { type: Number, optional: true, default: 0 },
+    }; Vidu khai báo
+
+4. markup
+    . OWL luôn tự động thoát khỏi nội dung (escapes its content) của nó khi được đánh dấu là an toàn (sử dụng hàm markup).
+    . Khi sử dụng t-esc mà truyền vào content có chứa các thẻ html thì sẽ mặc định hiển thị như thế (Hiển thị như string, chưa cả các thẻ html).
+    . import { markup } from "@odoo/owl";
+    . bọc markup ra ngoài content cần loại bỏ hiển thị html và sử dụng thẻ t-out để hiển thị chúng.
+
+5. bind
+    Coi như this
+    Gọi ngược lên components cha.
+
+
+6. Input
+    . keyCode: Nhận biết đang bấm nút gì trên bàn phím (ev.keyCode === 13 : Nhận biết bấm phím enter)
+
+

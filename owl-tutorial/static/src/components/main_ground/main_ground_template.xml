@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="owl.main_ground_template" owl="1">
+        <div class="p-3">
+            <div>
+                <h1>Hello World</h1>
+            </div>
+            <Counter onChange.bind="sum_count"/>
+            <Counter onChange.bind="sum_count"/>
+            <div>The sum is: <t t-esc="state.value_sum_bind"/></div>
+        </div>
+
+        <div class="p-3" style="border: 1px solid red;">
+            <Card value1="'value1'" value2="3*3" value3="state.html" value4="state.html_markup"/>
+        </div>
+        <div class="p-3" style="border: 1px solid red;">
+            <Card value1="'value1'">
+                Slot:
+                <Counter />
+            </Card>
+        </div>
+
+
+        <TodoList/>
+
+    </t>
+</templates>
+

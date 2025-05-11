@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="owl.card_template" owl="1">
+        <div class="card d-inline-block m-2" style="width: 18rem;">
+            <div class="card-body">
+                <t t-esc="props.value1"/>
+            </div>
+            <div class="card-body">
+                <t t-esc="props.value2"/>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    Sử dụng t-esc: <t t-esc="props.value3"/>
+                </h5>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title" style="color: red">
+                    Sử dụng t-out và markup: <t t-out="props.value4"/>
+                </h5>
+            </div>
+            <div class="card-body">
+                <t t-esc="displayValue5"/>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <t t-slot="default"/>
+                </p>
+            </div>
+        </div>
+    </t>
+
+</templates>

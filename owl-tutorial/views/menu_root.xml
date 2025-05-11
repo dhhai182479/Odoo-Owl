@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    Menu Root-->
+    <menuitem id="owl_menu_root"
+              name="OWL"
+              web_icon="owl,static/description/icon.png"
+              sequence="1"/>
+
+    <menuitem id="owl_menu_main_ground"
+              parent="owl.owl_menu_root"
+              name="Main" sequence="1"/>
+
+    <menuitem id="owl_menu_todo_list"
+              parent="owl.owl_menu_root"
+              name="Todo List" sequence="2"/>
+
+<!--Menu Components-->
+
+    <!--Main-->
+    <record id="main_ground_action" model="ir.actions.client">
+        <field name="name">Main</field>
+        <field name="tag">action_main_ground</field>
+    </record>
+    <menuitem id="main_menu" name="Main"
+              parent="owl_menu_main_ground"
+              action="owl.main_ground_action"/>
+
+    <!--Counter-->
+    <record id="counter_action" model="ir.actions.client">
+            <field name="name">Counter</field>
+            <field name="tag">action_counter</field>
+    </record>
+    <menuitem id="counter_menu" name="Counter"
+          parent="owl.owl_menu_root"
+          action="owl.counter_action"
+          sequence="1"/>
+
+    <!-- TODO_LIST -->
+    <record id="todo_list_action" model="ir.actions.client">
+        <field name="name">Todo List</field>
+        <field name="tag">action_todo_list</field>
+    </record>
+    <menuitem id="todo_list_menu"
+              name="TODO LIST"
+              parent="owl.owl_menu_todo_list"
+              action="owl.todo_list_action" sequence="1"/>
+
+
+</odoo>
